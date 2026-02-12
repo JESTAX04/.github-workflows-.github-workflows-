@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width,initial-scale=1" />
+ <title>No name</title>
+
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+ <link rel="stylesheet" href="./styles.css" />
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+ <div class="bg"></div>
+
+<header class="h89-topbar">
+  <div class="h89-topbar-left">
+    <img class="h89-logo" src="chomik.jpg" alt="logo" />
+    <div class="h89-brand">
+      <div class="h89-brand-title">H89 TriggerFinder</div>
+      <div class="h89-brand-sub" id="h89TopSub">Secure • Fast • Pro</div>
+    </div>
+  </div>
+
+  <div class="h89-topbar-right">
+    <button class="h89-bell" id="h89BellBtn" type="button" title="Notifications">
+      <i class="fa-solid fa-bell"></i>
+      <span class="h89-bell-badge" id="h89BellCount" style="display:none">0</span>
+    </button>
+
+    <div class="h89-prof">
+      <img class="h89-prof-ava" id="h89TopAvatar" src="" alt="avatar" />
+      <span class="h89-prof-role" id="h89TopRole">GUEST</span>
+    </div>
+
+    <span class="h89-chip" id="h89TopStatus">● READY</span>
+  </div>
+</header>
+<div id="h89NotifyDrawer" class="h89-notify-drawer hidden" aria-hidden="true"></div>
+
+
+
+ <main class="wrap">
+ <section class="card" role="region" aria-label="Dashboard">
+ <header class="head">
+ <div class="lock">🧩</div>
+ <div>
+ <h1>Dashboard</h1>
+ <p class="sub">Welcome. Choose where to go.</p>
+ </div>
+ </header>
+
+ <div class="form">
+
+ <div class="divider"><span>Discord</span></div>
+
+ <div class="discordCard">
+ <img id="dAvatar" class="dAvatar" id="dAvatar" src="" alt="Discord avatar" />
+ <div>
+ <div id="dName" class="dName" id="dName">Loading...</div>
+ <div id="dMeta" class="dMeta" id="dMeta"></div>
+ </div>
+ </div>
+
+ <div class="divider"><span>App</span></div>
+ <div class="tip" id="appInfo"></div>
+
+ <div class="tip" id="who"></div>
+
+ 
+<div class="h89-tiles">
+  <button class="h89-tile" id="tileTrigger" type="button"><i class="fa-solid fa-magnifying-glass"></i><span>TriggerFinder</span></button>
+  <button class="h89-tile" id="tileDownloads" type="button"><i class="fa-solid fa-download"></i><span>Downloads</span></button>
+  <button class="h89-tile" id="tileAdmin" type="button" style="display:none"><i class="fa-solid fa-shield-halved"></i><span>Admin</span></button>
+  <button class="h89-tile" id="tileLogout" type="button"><i class="fa-solid fa-right-from-bracket"></i><span>Logout</span></button>
+</div>
+<div class="h89-session" id="sessionInfo"></div>
+
+<button id="goTrigger" class="btn primary" type="button">OPEN TRIGGERFINDER</button><button id="dashDownloadBtn" class="btn download" type="button">Downloads Loder</button>
+ 
+        <button id="adminBtn" class="btn admin" type="button" style="display:none">ADMIN</button>
+        <button id="logout" class="btn ghost" type="button">LOGOUT</button>
+
+ <div class="divider"><span>Info</span></div>
+ <p class="tip">
+ NOTE: If you rename the TriggerFinder file, update the link in <b>dashboard.js</b>.
+ </p>
+ </div>
+
+ <footer class="foot">
+ <span id="statusDot" class="statusDot"></span>
+ <span id="statusText">Checking session...</span>
+ </footer>
+ </section>
+ </main>
+
+ <script src="./config.js"></script>
+ <script type="module" src="./dashboard.js"></script>
+
+  <!-- Admin Modal -->
+  <div id="adminModal" class="modal">
+    <div class="modalCard">
+      <div class="modalTop">
+        <div class="modalTitle">Admin Panel</div>
+        <button id="adminX" class="iconBtn" type="button">✕</button>
+      </div>
+
+      <div class="tabs">
+        <button id="tabLic" class="tab active" type="button">Licenses</button>
+        <button id="tabUsers" class="tab" type="button">Users</button>
+        <button id="tabAudit" class="tab" type="button">Audit</button>
+      </div>
+
+      <div class="modalBody">
+        <div id="panelLic">
+          <div class="row">
+            <input id="licEmail" class="inp" placeholder="Search license by email..." />
+            <button id="licSearchBtn" class="btn small" type="button">SEARCH</button>
+          </div>
+
+          <div class="hr"></div>
+          <div class="sectionTitle">Generate License</div>
+          <div class="row">
+            <input id="genEmail" class="inp" placeholder="Customer email (optional)" />
+          </div>
+          <div class="row">
+            <select id="genPlan" class="inp">
+              <option value="lifetime">Lifetime</option>
+              <option value="1m" selected>1 Month</option>
+              <option value="3m">3 Months</option>
+            </select>
+            <button id="genKeyBtn" class="btn small" type="button">GENERATE</button>
+          </div>
+          <div class="row">
+            <input id="genKeyOut" class="inp" placeholder="Generated key..." readonly />
+            <button id="copyKeyBtn" class="btn small" type="button">COPY</button>
+            <button id="mailKeyBtn" class="btn small" type="button">EMAIL</button>
+          </div>
+          <div id="licResults" class="results"></div>
+        </div>
+
+        <div id="panelUsers" class="hide">
+          <div class="row">
+            <input id="userEmail" class="inp" placeholder="Search user by email..." />
+            <button id="userSearchBtn" class="btn small" type="button">SEARCH</button>
+          </div>
+          <div id="userResults" class="results"></div>
+        </div>
+
+        <div id="panelAudit" class="hide">
+          <div class="row">
+            <button id="auditRefreshBtn" class="btn small" type="button">REFRESH</button>
+          </div>
+          <div id="auditList" class="results"></div>
+        </div>
+      </div>
+
+      <div class="modalBottom">
+        <button id="adminClose" class="btn" type="button">CLOSE</button>
+      </div>
+    </div>
+  </div>
+
+ <script src="./ui-kit.js"></script>
+</body>
+</html>
