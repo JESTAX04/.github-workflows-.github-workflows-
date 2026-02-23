@@ -1,7 +1,0 @@
-<meta>
-    <info author="VisionX Protection By Dragon" />
-    <script src="src/visionx_s.lua" type="server"/>
-    <script src="src/visionx_c.lua" type="client"/>
-    <script src="src/visionxS.lua" type="server"/>
-    <script src="src/visionxC.lua" type="client"/>
-</meta>
