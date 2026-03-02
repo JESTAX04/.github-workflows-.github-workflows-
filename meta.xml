@@ -1,0 +1,11 @@
+<meta>
+    <info author="JESTA" name="mdt_web_dx_citizens_live_fixmap4" type="script" version="3.5"/>
+
+    <script src="config.lua" type="shared"/>
+    <script src="client.lua" type="client"/>
+    <script src="server.lua" type="server"/>
+
+    <file src="ui/index.html"/>
+    <file src="ui/style.css"/>
+    <file src="ui/app.js"/>
+</meta>
