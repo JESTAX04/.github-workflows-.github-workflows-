@@ -1,0 +1,14 @@
+<meta>
+    <info author='Diigo'/>
+
+    <script src='archives/src/*' type='shared' cache='false'/>
+    <script src='archives/src/client/*' type='client' cache='false'/>
+    <script src='archives/src/server/*'/>
+    
+    <file src='archives/assets/imgs/*'/>
+
+    <export function='savesMedic' type='server'/>
+    <export function='isMedicalBag' type='server'/>
+    <export function='isMedicalBagInFloor' type='server'/>
+    <export function='savePlayer' type='server'/>
+</meta>
